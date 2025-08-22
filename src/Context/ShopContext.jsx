@@ -27,11 +27,11 @@ const ShopContextProvider = (props) =>
 
           if(localStorage.getItem('auth-token'))
           {
-            fetch(`${process.env.REACT_APP_API_URL}/getcart`,{
+            fetch(`${process.env.REACT_APP_API_URL}/getcart/protected`,{
               method:'POST',
               headers:{
                 Accept:'application/form-data',
-                'auth-token':`${localStorage.getItem('auth-token')}`,
+                'auth-token':`Bearer ${localStorage.getItem('auth-token')}`,
                 'Content-Type':'application/json'
               },
               body:""
